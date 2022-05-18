@@ -11,7 +11,7 @@ export default function Catalog({catalog}){
             <h3>Selecione o filme</h3>
             
             <div className="capas">
-                {catalog.map( item => <img onClick={desenvolvimento()} className='filmeCapa' src={item.posterURL} />) }
+                {catalog.map( item => <img onClick={desenvolvimento} className='filmeCapa' src={item.posterURL} />) }
             </div>
             
         </div>
