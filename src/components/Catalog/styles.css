@@ -1,0 +1,25 @@
+.catalog{
+    margin-top: 70px;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.capas{
+    margin-top: -15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.filmeCapa{
+    width: 130px;
+    height: 195px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+h3{
+    font-family: 'Roboto';
+    font-weight: 200;
+    font-size: 24px;
+}
