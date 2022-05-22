@@ -8,7 +8,6 @@ export default function Film({ posterURL, id, title }) {
             <img className='filmeCapa' src={posterURL} alt={title} />
         </Link>        
             
-            
     )
 
 }

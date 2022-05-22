@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
 import '../Catalog/styles.css'
 import axios from 'axios';
@@ -17,8 +16,6 @@ export default function Catalog() {
         ));
 
     }, []); // Isto é para nao ficar passando em loop, com o react useEffect isto roda apenas uma vez.
-
-    console.log(catalog);
 
     return (
         <div className='catalog'>
