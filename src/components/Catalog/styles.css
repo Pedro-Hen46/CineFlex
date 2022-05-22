@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+* {
+    box-sizing: border-box;
+}
 .root{
     margin-bottom: 200px;
 }
@@ -16,12 +18,21 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    
+}
+.filmeCapa:hover{
+    width: 150px;
+    height: 210px;
+    cursor: pointer;
+
+    box-shadow: 0px 0px 10px rgba(0,0,0, 0.3);
 }
 .filmeCapa{
     width: 130px;
     height: 195px;
     margin-right: 20px;
     margin-top: 20px;
+    transition: 0.1s all linear;
 }
 h3{
     font-family: 'Roboto';
@@ -77,11 +88,14 @@ h6{
     font-size: 12px;
     font-weight: 700;
 }
+
+
 .button-reserv{
+    margin-top: 30px;
     background-color: #E8833A;
     border: thin solid #E8833A;
-    border-radius: 10px;
-    width: 200px;
+    border-radius: 5px;
+    width: 100%;
     height: 40px;
 }
 .button-reserv  span{
@@ -90,7 +104,10 @@ h6{
     font-weight: 300;
     color: white;
 }
-
+.button-reserv:hover{
+    cursor: pointer;
+    filter: brightness(1.09);
+}
 
 .escolhendoAssento{
     margin-top: 70px;
@@ -103,38 +120,86 @@ h6{
 
 
 .poltronas{
-    width: 55%;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 
 }
-.verde{
-    background-color: greenyellow;
-}
-.poltrona-vermelha{
-    background-color: red;
+
+.poltrona-disable{
+    background-color: #FBE192;
+    border: 2px solid #F7C52B;
     width: 50px;
     height: 50px;
-    margin-right: 10px;
+    margin-right: 20px;
     margin-bottom: 10px;
     border-radius: 100%;
 }
-.poltrona-vermelha:hover{
+.poltrona-disable:hover{
     cursor: not-allowed;
 }
 .poltrona{
     width: 50px;
     height: 50px;
-    margin-right: 10px;
+    background-color: #C3CFD9;
+    border: 2px solid #808F9D;
+    margin-right: 20px;
     margin-bottom: 10px;
     border-radius: 100%;
     transition: 0.1s all;
 }
 .poltrona:hover{
     cursor: pointer;
-    width: 52px;
-    height:52px ;
     filter: brightness(0.90);
+}
+.selecionado{
+    background-color: #8DD7CF;
+    border: 2px solid #1AAE9E;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 100%;
+}
+
+.legendas-poltronas{
+    width: 80%;
+    height: 80px;
+    padding: 30px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    
+}
+.legendas-poltronas h4{
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.legenda{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+   
+}
+
+.inputs{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input {
+    margin-top: -30px;
+    width: auto;
+    height: 40px;
+    border-radius: 5px;
+    border: thin solid lightgray;
 }

@@ -31,7 +31,7 @@ export default function Section() {
                     <h3>Selecione o horário</h3>
                     {filmInfo.days === undefined ? ''
                         :
-                        filmInfo.days.map((value, index) => <SectionInfo key={index} id={value.id} showtimes={value.showtimes} date={value.date} weekday={value.weekday} />)
+                        filmInfo.days.map((value, index) => <SectionInfo filmResume={value} key={index} id={value.id} showtimes={value.showtimes} date={value.date} weekday={value.weekday} />)
                     }
                 </div>
 

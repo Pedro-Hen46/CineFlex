@@ -5,11 +5,15 @@ import Header from './Header/Header';
 import Catalog from './Catalog/Catalog';
 import Section from "./Section/Section";
 import Assentos from "./Assentos/Assentos";
+import PedidoFinalizado from "./PedidoFinalizado/PedidoFinalizado";
 
 
 
 export default function App() {
 
+    const [resume, setResume] = React.useState({});
+    const [ingresso, setIngresso] = React.useState({});
+    const [comprador, setComprador] = React.useState({});
 
     return (
         <BrowserRouter>
@@ -17,7 +21,8 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Catalog />} />
                 <Route path="/sessoes/:idFilme" element={<Section />} />
-                <Route path="/assentos/:idSessao" element={<Assentos />} />
+                <Route path="/assentos/:idSessao" element={<Assentos setResume={setResume} setIngresso={setIngresso} setComprador={setComprador}  />} />
+                <Route path="/finalizado/:idPedido" element={<PedidoFinalizado  resume={resume} />} />
             </Routes>
         </BrowserRouter>
     );

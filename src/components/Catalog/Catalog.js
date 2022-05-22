@@ -23,7 +23,7 @@ export default function Catalog() {
             <h3>Selecione o filme</h3>
             
                 <div className="capas">
-                    {catalog.map( (value, index) => <Film title={value.title} posterURL={value.posterURL} id={value.id} key={index}/>) }
+                    {catalog.map( (value, index) => <Film catalog={value} title={value.title} posterURL={value.posterURL} id={value.id} key={index}/>) }
                 </div>
             
         </div>

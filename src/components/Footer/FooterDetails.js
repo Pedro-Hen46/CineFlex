@@ -10,8 +10,11 @@ export default function FooterDetails({ hora, movie, day }) {
             <img src={movie.posterURL} alt={movie.title} />
 
             <div className='legenda-footer'>
-                <h3> <strong>{movie.title}</strong> </h3>
-                <h3>{day.weekday} - {day.date} - <strong>{hora}H</strong></h3>
+                <div>
+                    <h3> <strong>{movie.title}</strong> </h3>
+                    <span>{day.weekday} - {day.date} - <strong>{hora}H</strong></span>
+                </div>
+
 
             </div>
 
