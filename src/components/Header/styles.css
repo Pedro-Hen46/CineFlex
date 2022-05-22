@@ -14,10 +14,15 @@
     justify-content: center;
     align-items: center;
 }
-
+.header h1:hover{
+    cursor: pointer;
+    font-size: 38px;
+}
 .header h1{
     font-family: 'Roboto';
     font-weight: 300;
     font-size: 34px;
     color: #E8833A;
+
+    transition: 0.3s all;
 } 

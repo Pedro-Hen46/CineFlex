@@ -1,30 +1,24 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+
 import Header from './Header/Header';
 import Catalog from './Catalog/Catalog';
+import Section from "./Section/Section";
 
-export default function App(){
 
-    const [catalog, setCatalog] = React.useState([]);
+export default function App() {
 
-   React.useEffect( () => {
-
-        const promise = axios.get('https://mock-api.driven.com.br/api/v5/cineflex/movies');
-
-        promise.then( res => (
-            setCatalog(res.data)
-        ));
-
-    }, []); // Isto é para nao ficar passando em loop, com o react useEffect isto roda apenas uma vez.
-    
-
+ 
     return (
-        <>
+        <BrowserRouter>
             <Header />
+            <Routes>
+                <Route path="/" element={ <Catalog /> } />
 
-            <Catalog setCatalog={setCatalog} catalog={catalog}/>
-            
-        </>
+                <Route path="/sessoes/:idFilme" element={ <Section /> } />
+            </Routes>
+        </BrowserRouter>
+    );
 
-    )
+
 }
