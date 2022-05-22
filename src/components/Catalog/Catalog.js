@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import '../Catalog/styles.css'
 import axios from 'axios';
 import Film from '../Film/Film';
@@ -7,7 +8,7 @@ export default function Catalog() {
 
     const [catalog, setCatalog] = React.useState([]);
 
-    React.useEffect(() => {
+    useEffect(() => {
 
         const promise = axios.get('https://mock-api.driven.com.br/api/v5/cineflex/movies');
 

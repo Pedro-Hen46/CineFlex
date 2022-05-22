@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import React from "react";
 import axios from "axios";
 import FooterSection from "../Footer/Footer";
@@ -11,9 +12,8 @@ export default function Section() {
     let { idFilme } = useParams();
 
     const [filmInfo, setFilmInfo] = React.useState({});
-    // const [arrDate, setarrDate] = React.useState({});
 
-    React.useEffect((() => {
+    useEffect((() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`);
         promise.then(ansewerBack => {
             setFilmInfo({ ...ansewerBack.data }
@@ -31,7 +31,7 @@ export default function Section() {
                     <h3>Selecione o horário</h3>
                     {filmInfo.days === undefined ? ''
                         :
-                        filmInfo.days.map ((value, index) => <SectionInfo key={index} id={value.id} showtimes={value.showtimes} date={value.date} weekday={value.weekday}/> ) 
+                        filmInfo.days.map((value, index) => <SectionInfo key={index} id={value.id} showtimes={value.showtimes} date={value.date} weekday={value.weekday} />)
                     }
                 </div>
 
