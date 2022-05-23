@@ -165,6 +165,9 @@ h6{
     border-radius: 100%;
     transition: 0.1s all;
 }
+.poltrona-livre:hover{
+    cursor: pointer;
+}
 .poltrona:hover{
     cursor: pointer;
     filter: brightness(0.90);

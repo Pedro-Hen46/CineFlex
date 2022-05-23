@@ -12,7 +12,7 @@ import PedidoFinalizado from "./PedidoFinalizado/PedidoFinalizado";
 export default function App() {
 
     const [resume, setResume] = React.useState({});
-    const [ingresso, setIngresso] = React.useState({});
+    const [ingresso, setIngresso] = React.useState([]);
     const [comprador, setComprador] = React.useState('');
     const [cpf, setCPF] = React.useState('');
 
@@ -22,8 +22,8 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Catalog />} />
                 <Route path="/sessoes/:idFilme" element={<Section />} />
-                <Route path="/assentos/:idSessao" element={<Assentos setResume={setResume} setIngresso={setIngresso} setComprador={setComprador} setCPF={setCPF} comprador={comprador} cpf={cpf}/>} />
-                <Route path="/sucesso/:idPedido" element={<PedidoFinalizado  cpf={cpf} comprador={comprador} resume={resume}  />} />
+                <Route path="/assentos/:idSessao" element={<Assentos setResume={setResume} setIngresso={setIngresso} ingresso={ingresso} setComprador={setComprador} setCPF={setCPF} comprador={comprador} cpf={cpf}   />} />
+                <Route path="/sucesso/:idPedido" element={<PedidoFinalizado  cpf={cpf} comprador={comprador} resume={resume}  ingresso={ingresso} />} />
             </Routes>
         </BrowserRouter>
     );

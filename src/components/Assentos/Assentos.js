@@ -9,13 +9,14 @@ import { useParams } from "react-router-dom";
 
 import '../Catalog/styles.css'
 
-export default function Assentos({ id, setResume, setComprador, setCPF, cpf, comprador }) {
+export default function Assentos({ id, setResume, setComprador, setCPF, cpf, comprador, setIngresso, ingresso }) {
 
-
-
+    // 
+   
+ 
     let { idSessao } = useParams();
     const [assento, setAssento] = React.useState(0);
-    const [poltrona, setPoltrona] = React.useState(0);
+    const [poltrona, setPoltrona] = React.useState([]);
     const [classButton, setclassButton] = React.useState('poltrona-livre');
     const [confirmComprador, setConfirmComprador] = React.useState(false);
     const [confirmCPF, setConfirmCPF] = React.useState(false);
@@ -31,11 +32,22 @@ export default function Assentos({ id, setResume, setComprador, setCPF, cpf, com
 
     const { seats } = assento;
 
+    // FUNCAO DE CLICAR NA POLTRONA E SELECIONAR...
     function ClickPoltrona(value, index) {
-        console.log(value);
-        if(value.isAvailable === true) {
+        
+        if (value.isAvailable === true) {
             setclassButton('selecionado')
-        }
+            
+            setPoltrona([...poltrona, index]);
+            setIngresso([...ingresso, poltrona]);
+    
+        } else alert('Está poltrona se encontra Indisponível, por favor tente outra...');
+
+        seats.filter((elemento) => {
+            if (elemento.name === value.name) {
+                elemento.id = 'selecionado';
+            }
+        });
     }
 
 
@@ -58,7 +70,7 @@ export default function Assentos({ id, setResume, setComprador, setCPF, cpf, com
             setConfirmCPF(true);
         } else setConfirmCPF(false);
     }
-    function BlockCPFinput(){
+    function BlockCPFinput() {
         alert('Por favor, insira um valor de CPF válido.');
     }
 
@@ -79,11 +91,9 @@ export default function Assentos({ id, setResume, setComprador, setCPF, cpf, com
 
                     <div className="poltronas">
                         {seats.map((value, index) =>
-                            <button onClick={() => ClickPoltrona(value, index)}
-                                className={value.isAvailable === true ?
-                                     classButton : 
-                                     'poltrona-disable'}
-                                     
+                            <button onClick={() => ClickPoltrona(value, index + 1)}
+                                className={value.isAvailable === true ? value.id === 'selecionado' ? "selecionado" : 'poltrona-livre' : 'poltrona-disable'}
+
                                 key={index}>
                                 <h6>{value.name}</h6>
                             </button>
@@ -109,14 +119,15 @@ export default function Assentos({ id, setResume, setComprador, setCPF, cpf, com
                         <h4>Nome do comprador:</h4>
                         <input onChange={(event) => InputComprador(event)} placeholder="Digite o seu nome..."></input>
                         <h4>CPF do comprador:</h4>
-                        <input maxLength={10} onChange={(event) => { 
-                            cpf.length >= 11 ? BlockCPFinput() : InputCPF(event) }} type="number" placeholder="XXX.XXX.XXX-XX"></input>
+                        <input maxLength={10} onChange={(event) => {
+                            cpf.length >= 11 ? BlockCPFinput() : InputCPF(event)
+                        }} type="number" placeholder="XXX.XXX.XXX-XX"></input>
                     </div>
 
-                    {button === true ? 
-                            <Link to={`/sucesso/${idSessao}`}>
-                                <button className='button-reserv'><span>Reservar assento(s)</span></button>
-                            </Link>
+                    {button === true ?
+                        <Link to={`/sucesso/${idSessao}`}>
+                            <button className='button-reserv'><span>Reservar assento(s)</span></button>
+                        </Link>
                         :
                         <div className='button-disable' onClick={ButtonDisable}><span>Preencha os dados acima para liberar o botão...</span></div>
 
